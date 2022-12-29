@@ -1,1 +1,7 @@
-# Egg_Timer
+# Egg Timer
+
+The provided code can be used to build a basic FPGA-based egg timer using counters, finite state machines, encoders, registers, and logic. 
+
+The FPGA receives input from a 100MHz clock, BTNL/BTNR/BTNU/BTND push buttons, and SW0/SW15 slide switches, and provides output to LED0/LED1 LEDs and control signals for four seven-segment displays. The seven-segment displays show the cook time in minutes and seconds, while LED0 is illuminated when the timer is enabled and LED1 blinks at a 1-second interval when the timer is active and counting down. The BTNL button can be used to change the programmed cook time by pressing BTNU to increment minutes or BTND to increment seconds, while the BTNR button starts the timer countdown. SW0 enables or disables the timer, and SW15 resets the timer and sets the programmed cook time to 00:00 minutes and seconds. 
+
+The code includes debouncing for the BTNU/BTND buttons and generates a 1Hz control signal from the 100MHz clock. The design includes a master controller that receives input from the buttons and switch, a timer on block that turns on LED1 at a 0.5Hz rate with a 50% duty cycle, a cook time block that sets the programmed cook time, a count time block that sets the countdown time, a 7-segment mux block that selects data to display on the seven-segment display, and a decoder block that converts binary data to seven-segment display data
